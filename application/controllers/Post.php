@@ -11,7 +11,8 @@ class Post extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('post_view');
+        $data['blogs'] = $this->post_model->getRow();
+		$this->load->view('post_view', $data);
     }
     public function add(){
 
@@ -26,9 +27,11 @@ class Post extends CI_Controller {
 
             $response = $this->post_model->add($data);
             if($response){
-                echo "data base been inserted successfully!";
+                
+                redirect('/');
+
             }else{
-                echo "error while processing your request!";
+                redirect('/');
             }
 
 

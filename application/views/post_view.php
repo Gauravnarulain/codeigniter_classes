@@ -12,6 +12,7 @@
           <div class="col-3">
           </div>
           <div class="col-6">
+              <div class="col-12">
              <form method="post" action="<?= base_url('index.php/post/add/') ?>">
                 <div class="form-group">
                   <label>Post Title</label>
@@ -21,6 +22,31 @@
                    <input type="submit" name="btnsave" class="btn btn-primary btn-block" value="Submit" />
                 </div>
              </form>
+             </div>
+             <div class="col-12">
+             <table class="table table-responsive">
+              <?php 
+               if(!empty($blogs)){
+                  foreach ($blogs as $key => $value) {
+                     ?>
+                     <tr>
+                       <td><?= $value->post_id ?></td>
+                       <td><?= $value->post_title ?></td>
+                       <td><?= $value->created ?></td>
+                       <td><?= $value->modified ?></td>
+                       <td><a class="btn btn-primary btn-sm" href='javascript:void(0);'>Update</a></td>
+                       <td><a class="btn btn-danger btn-sm" href='javascript:void(0);'>Delete</a></td>
+                     </tr>
+                     <?php
+                  }
+               }
+              ?>
+              </table>
+             </div>
+
+
+
+
           </div>
        </div>
     </div>
