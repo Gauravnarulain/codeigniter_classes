@@ -35,7 +35,7 @@
                        <td><?= $value->created ?></td>
                        <td><?= $value->modified ?></td>
                        <td><a class="btn btn-primary btn-sm" href='javascript:void(0);'>Update</a></td>
-                       <td><a class="btn btn-danger btn-sm" href='javascript:void(0);'>Delete</a></td>
+                       <td><a class="btn btn-danger btn-sm" href='<?= base_url('index.php/post/delete/').$value->post_id; ?>'>Delete</a></td>
                      </tr>
                      <?php
                   }
@@ -43,10 +43,6 @@
               ?>
               </table>
              </div>
-
-
-
-
           </div>
        </div>
     </div>

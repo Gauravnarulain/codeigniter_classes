@@ -13,6 +13,10 @@ class Post_model extends CI_Model {
     function getRow(){
         return $this->db->get('tbl_post')->result();
     }
+    function delete($ref){
+        $response = $this->db->delete('tbl_post',array('post_id'=>$ref));
+        return $response?true:false;
+    }
 
 }
 ?>

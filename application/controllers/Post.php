@@ -37,5 +37,13 @@ class Post extends CI_Controller {
 
         }
     }
+    public function delete($ref){
+        $response = $this->post_model->delete($ref);
+        if($response){
+            redirect('/');
+        }else{
+            redirect('/');
+        }
+    }
 	
 }
