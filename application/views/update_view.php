@@ -13,36 +13,22 @@
           </div>
           <div class="col-6">
               <div class="col-12">
-             <form method="post" action="<?= base_url('index.php/post/add/') ?>">
+              <?php 
+                if(!empty($post)){
+              ?>
+             <form method="post" action="<?= base_url('index.php/post/update/').$post[0]['post_id']; ?>">
                 <div class="form-group">
-                  <label>Post Title</label>
-                   <input type="text" name="post_title" class="form-control" required />
+                  <label>Update Post Title</label>
+                   <input value="<?php echo $post[0]['post_title']; ?>" type="text" name="post_title" class="form-control" required />
                 </div>
                 <div class="form-group">
                    <input type="submit" name="btnsave" class="btn btn-primary btn-block" value="Submit" />
                 </div>
              </form>
+             <?php 
+             } ?>
              </div>
-             <div class="col-12">
-             <table class="table table-responsive">
-              <?php 
-               if(!empty($blogs)){
-                  foreach ($blogs as $key => $value) {
-                     ?>
-                     <tr>
-                       <td><?= $value->post_id ?></td>
-                       <td><?= $value->post_title ?></td>
-                       <td><?= $value->created ?></td>
-                       <td><?= $value->modified ?></td>
-                       <td><a class="btn btn-primary btn-sm" href='<?= base_url('index.php/post/update/').$value->post_id; ?>'>Update</a></td>
-                       <td><a class="btn btn-danger btn-sm" href='<?= base_url('index.php/post/delete/').$value->post_id; ?>'>Delete</a></td>
-                     </tr>
-                     <?php
-                  }
-               }
-              ?>
-              </table>
-             </div>
+             
           </div>
        </div>
     </div>

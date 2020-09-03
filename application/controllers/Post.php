@@ -45,5 +45,32 @@ class Post extends CI_Controller {
             redirect('/');
         }
     }
+    public function update($ref){
+
+        $data['post'] = $this->post_model->getRowById($ref);
+        $btn=$this->input->post('btnsave');
+        if(isset($btn)){
+
+            $title=$this->input->post('post_title');
+
+            $data = array(
+                'post_title' =>$title,
+            );
+
+            $response = $this->post_model->update($data,$ref);
+            if($response){
+                
+                redirect('/');
+
+            }else{
+                redirect('/');
+            }
+
+
+
+        }
+
+        $this->load->view("update_view",$data);
+    }
 	
 }
